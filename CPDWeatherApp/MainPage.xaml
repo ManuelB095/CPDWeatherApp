@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CPDWeatherApp.MainPage">
+
+    <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+        <Entry x:Name="firstVal" HorizontalOptions="FillAndExpand" Margin="12,12,12,12"></Entry>
+        <Entry x:Name="secondVal" HorizontalOptions="FillAndExpand"  Margin="12,12,12,12" ></Entry>
+        <Button x:Name="btnCalculate" 
+                Text="Calculate"
+                Clicked="btnCalculate_Clicked"></Button>
+        <Label x:Name="Output" HorizontalOptions="FillAndExpand"  Margin="12,12,12,12"></Label>
+
+        <Slider
+            x:Name="mySlider"
+            ValueChanged="mySlider_ValueChanged"></Slider>
+        <Label
+            x:Name="lblSliderOutput"
+            Text="0"></Label>
+    </StackLayout>
+    
+
+</ContentPage>
