@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CPDWeatherApp"
+             x:Class="CPDWeatherApp.MainPage"
+             Title="{Binding Title}">
+
+    <ContentPage.BindingContext>
+        <local:HomeViewModel></local:HomeViewModel>
+    </ContentPage.BindingContext>
+
+    <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+        <ListView
+            x:Name="weatherOverview"
+            ItemsSource="{Binding WeatherObjects}"
+            CachingStrategy="RecycleElement"
+            HasUnevenRows="True"
+            IsPullToRefreshEnabled="True"
+            RefreshCommand="{Binding LoadDataCommand}"
+            IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+            SelectionMode="None"
+            >
+            
+            <ListView.Behaviors>
+                <local:ItemTappedBehavior Command="{Binding ItemClickCommand}"/>
+            </ListView.Behaviors>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10">
+                            <Label
+                                Text="{Binding Timestamp, StringFormat='{0:MMMM dd, yyyy HH:mm}'}"
+                                FontSize="14"
+                                FontAttributes="Bold"
+                                />
+                            <Label
+                                Text="{Binding Icon}"
+                                FontSize="14"
+                                />
+                            <Label
+                                Text="{Binding Temperature}"
+                                FontSize="14"
+                                />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+            
+            
+            
+    </StackLayout>
+    
+
+</ContentPage>

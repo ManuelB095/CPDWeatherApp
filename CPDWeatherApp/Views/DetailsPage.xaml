@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CPDWeatherApp"
+             x:Class="CPDWeatherApp.DetailsPage"
+             Title="{Binding Title}">
+    
+    <ContentPage.Content>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="8,6,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>            
+            
+            <Label Grid.Row="0" Grid.Column="0" Text="Icon:"                 
+                HorizontalOptions="FillAndExpand" />
+            <Label Grid.Row="0" Grid.Column="1" Text="{Binding CurrentObject.Icon, Mode=OneWay}"                 
+                HorizontalOptions="FillAndExpand" />
+            <Label Grid.Row="1" Grid.Column="0" Text="Date and Time:"                 
+                HorizontalOptions="FillAndExpand" />
+            <Label Grid.Row="1" Grid.Column="1" Text="{Binding CurrentObject.Timestamp, StringFormat='{0:MMMM dd, yyyy HH:mm}', Mode=OneWay}"                 
+                HorizontalOptions="FillAndExpand" />
+            <Label Grid.Row="2" Grid.Column="0" Text="Condition:"                 
+                HorizontalOptions="FillAndExpand" />
+            <Label Grid.Row="2" Grid.Column="1" Text="{Binding CurrentObject.Condition, Mode=OneWay}"                 
+                HorizontalOptions="FillAndExpand" />
+            <Label Grid.Row="3" Grid.Column="0" Text="Temperature:"                 
+                HorizontalOptions="FillAndExpand" />
+            <Label Grid.Row="3" Grid.Column="1" Text="{Binding CurrentObject.Temperature, Mode=OneWay}"                 
+                HorizontalOptions="FillAndExpand" />
+            <Label Grid.Row="4" Grid.Column="0" Text="Pressure:"                 
+                HorizontalOptions="FillAndExpand" />
+            <Label Grid.Row="4" Grid.Column="1" Text="{Binding CurrentObject.Pressure, Mode=OneWay}"                 
+                HorizontalOptions="FillAndExpand" />
+            <Label Grid.Row="5" Grid.Column="0" Text="Humidity:"                 
+                HorizontalOptions="FillAndExpand" />
+            <Label Grid.Row="5" Grid.Column="1" Text="{Binding CurrentObject.Humidity, Mode=OneWay}"                 
+                HorizontalOptions="FillAndExpand" />
+            <Label Grid.Row="6" Grid.Column="0" Text="CloudCover:"                 
+                HorizontalOptions="FillAndExpand" />
+            <Label Grid.Row="6" Grid.Column="1" Text="{Binding CurrentObject.CloudCover, Mode=OneWay}"                 
+                HorizontalOptions="FillAndExpand" />
+            <Label Grid.Row="7" Grid.Column="0" Text="WindSpeed:"                 
+                HorizontalOptions="FillAndExpand" />
+            <Label Grid.Row="7" Grid.Column="1" Text="{Binding CurrentObject.WindSpeed, Mode=OneWay}"                 
+                HorizontalOptions="FillAndExpand" />
+            <Label Grid.Row="8" Grid.Column="0" Text="WindDirection:"                 
+                HorizontalOptions="FillAndExpand" />
+            <Label Grid.Row="8" Grid.Column="1" Text="{Binding CurrentObject.WindDirection, Mode=OneWay}"                 
+                HorizontalOptions="FillAndExpand" />
+            <Label Grid.Row="9" Grid.Column="0" Text="Rain (last 3h):"                 
+                HorizontalOptions="FillAndExpand" />
+            <Label Grid.Row="9" Grid.Column="1" Text="{Binding CurrentObject.Rain3h, Mode=OneWay}"                 
+                HorizontalOptions="FillAndExpand" />
+            <Label Grid.Row="10" Grid.Column="0" Text="Snow (last 3h):"                 
+                HorizontalOptions="FillAndExpand" />
+            <Label Grid.Row="10" Grid.Column="1" Text="{Binding CurrentObject.Snow3h, Mode=OneWay}"                 
+                HorizontalOptions="FillAndExpand" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
