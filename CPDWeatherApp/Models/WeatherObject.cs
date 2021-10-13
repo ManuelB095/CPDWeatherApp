@@ -75,7 +75,7 @@ namespace CPDWeatherApp
 
         public string Temperature
         {
-            get { return _temperature; }
+            get { return _temperature + " °C"; }
             set
             {
                 _temperature = value;
@@ -84,7 +84,7 @@ namespace CPDWeatherApp
 
         public string Pressure
         {
-            get { return _pressure; }
+            get { return _pressure + " hPa"; }
             set
             {
                 _pressure = value;
@@ -93,7 +93,7 @@ namespace CPDWeatherApp
 
         public string Humidity
         {
-            get { return _humidity; }
+            get { return _humidity + " %"; }
             set
             {
                 _humidity = value;
@@ -102,7 +102,7 @@ namespace CPDWeatherApp
 
         public string CloudCover
         {
-            get { return _cloudCover; }
+            get { return _cloudCover + " %"; }
             set
             {
                 _cloudCover = value;
@@ -111,7 +111,7 @@ namespace CPDWeatherApp
 
         public string WindSpeed
         {
-            get { return _windSpeed; }
+            get { return _windSpeed + " kph"; }
             set
             {
                 _windSpeed = value;
@@ -120,7 +120,7 @@ namespace CPDWeatherApp
 
         public string WindDirection
         {
-            get { return _windDirection; }
+            get { return _windDirection + " kph"; }
             set
             {
                 _windDirection = value;
@@ -129,7 +129,7 @@ namespace CPDWeatherApp
 
         public string Rain3h
         {
-            get { return _rain3h; }
+            get { return _rain3h + " mm"; }
             set
             {
                 _rain3h = value;
@@ -138,7 +138,7 @@ namespace CPDWeatherApp
 
         public string Snow3h
         {
-            get { return _snow3h; }
+            get { return _snow3h + " mm"; }
             set
             {
                 _snow3h = value;

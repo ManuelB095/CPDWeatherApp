@@ -10,17 +10,6 @@ namespace CPDWeatherApp
 {
     public class HomeViewModel : BaseViewModel
     {
-        IRSSLoader _rssLoader;
-
-        public IRSSLoader RssLoader
-        {
-            get { return _rssLoader; }
-            set
-            {
-                _rssLoader = value;
-            }
-        }
-
         ObservableCollection<WeatherObject> _weatherObjects;
         public ObservableCollection<WeatherObject> WeatherObjects
         {
@@ -41,21 +30,31 @@ namespace CPDWeatherApp
         public HomeViewModel()
         {
             Title = "Homework2";
-            RssLoader = new RSSLoader(); RssLoader.LoadData();
-            WeatherObjects = RssLoader.GetWeatherData();
-            LoadDataCommand = new Command(ExecuteLoadDataCommand);
+            WeatherObjects = new ObservableCollection<WeatherObject>();
+            LoadDataCommand = new Command(async () => await ExecuteLoadDataCommand());
             ItemClickCommand = new Command(async (item) => await ExecuteItemClickedCommand(item));
+            LoadDataCommand.Execute("");
+
         }
 
-        void ExecuteLoadDataCommand()
+        private async Task ExecuteLoadDataCommand()
         {
             if (IsBusy)
                 return;
             try
             {
                 IsBusy = true;
-                RssLoader.Reload();
-                WeatherObjects = RssLoader.GetWeatherData();
+                WeatherDataService dataServ = new WeatherDataService();
+                var WeatherObjectsFromJSON = await dataServ.GetWeatherObjectAsync();
+                WeatherObjects.Clear();
+                foreach (var weatherObject in WeatherObjectsFromJSON)
+                {
+                    WeatherObjects.Add(weatherObject);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Error: {0}", ex.Message);
             }
             finally
             {
